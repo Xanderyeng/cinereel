@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Lato, Raleway, Ubuntu, Zilla_Slab, Nunito } from "next/font/google";
 import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/_components/theme-provider";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
@@ -41,6 +42,7 @@ export default function RootLayout({
           <Footer />
          </ThemeProvider>
        </body>
+       <SpeedInsights/>
      </html>
    </>
   );
