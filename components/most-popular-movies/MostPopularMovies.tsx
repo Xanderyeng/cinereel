@@ -26,7 +26,7 @@ async function MostPopularMovies() {
   //   )
 
   return (
-    <section className="py-24">
+    <section className="py-24 outline outline-2 outline-fuchsia-500">
       <h2 className="text-4xl font-bold font-raleway text-raleway text-center mb-8">
         Most Popular Movies
       </h2>

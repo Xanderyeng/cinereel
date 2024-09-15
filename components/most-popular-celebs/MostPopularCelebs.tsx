@@ -13,7 +13,7 @@ export default function MostPopularCelebs() {
   const celebs = fetchCelebs();
 
   return (
-    <section className="py-12">
+    <section className="py-12 w-full outline outline-2 outline-green-500">
       <h2 className="text-3xl font-bold text-center mb-8">
         Most Popular Celebrities
       </h2>
