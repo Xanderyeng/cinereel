@@ -12,16 +12,15 @@ export default function ByLine({ children }: BylineProps) {
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     transition={{ duration: 1 }}
-    className='flex items-end justify-center gap-2 text-[0.75rem]'
+    className='flex items-end align-middle justify-center gap-2 text-[0.75rem]'
   >
-    Tinker-made by
+    Tinker-built by
     <motion.span 
-    whileHover={{ scale: 1.6 }}
+    whileHover={{ scale: 1.2 }}
     whileTap={{ scale: 0.9 }}
-    className=' text-2xl cursor-pointer '>
+    className=' text-[0.75rem] cursor-pointer '>
     {children}
     </motion.span>
-    Chepkiyeng
   </motion.div>
   )
 }

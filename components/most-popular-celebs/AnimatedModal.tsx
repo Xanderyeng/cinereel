@@ -41,12 +41,11 @@ const itemVariants = {
 export default function AnimatedDialog({ celebrities }: AnimatedDialogProps) {
   return (
     <AnimatePresence>
-      {/* {isOpen && ( */}
         <Dialog>
         <DialogTrigger asChild>
           <Button variant="outline">See Other Partners</Button>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]" aria-description='Other Partners' aria-label="Other Partners" aria-describedby="other-partners">
+        <DialogContent className=" max-w-[90vw] rounded-lg md:rounded-md sm:max-w-[425px]" aria-description='Other Partners' aria-label="Other Partners" aria-describedby="other-partners">
             <motion.div
               variants={dialogVariants}
               initial="hidden"
@@ -69,7 +68,6 @@ export default function AnimatedDialog({ celebrities }: AnimatedDialogProps) {
                     visible: {
                       transition: {
                         staggerChildren: 0.1,
-                        // delayChildren: 0.2
                       }
                     }
                   }}
@@ -89,8 +87,6 @@ export default function AnimatedDialog({ celebrities }: AnimatedDialogProps) {
                           src={`https://image.tmdb.org/t/p/w200${celeb.profile_path}`}
                           alt={celeb.name}
                           fill
-                          // width={50}
-                          // height={50}
                           quality={75}
                           loading="lazy"
                           style={{ objectFit: 'cover' }}
@@ -105,7 +101,6 @@ export default function AnimatedDialog({ celebrities }: AnimatedDialogProps) {
             </motion.div>
         </DialogContent>
         </Dialog>
-      {/* )} */}
     </AnimatePresence>
   )
 }
