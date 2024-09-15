@@ -17,8 +17,8 @@ export default function MediaGrid({ movies, tvShows }: MediaGridProps) {
 
   const renderMasonryGrid = (items: (Movie | TVShow)[]) => {
     return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {items.slice(0, 15).map((item, index) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {items.slice(0, 9).map((item, index) => (
           <Card key={item.id} className={`w-full ${index % 3 === 1 ? 'sm:translate-y-4' : ''} hover:scale-105 transition-all duration-300 hover:cursor-pointer overflow-hidden`}>
             <CardContent className="p-0 ">
               <div className="relative aspect-[27/40] ">
@@ -26,9 +26,11 @@ export default function MediaGrid({ movies, tvShows }: MediaGridProps) {
                   src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
                   alt={item.title || (item as TVShow).name}
                   fill
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
                   style={{ objectFit: "cover" }}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-
                 />
               </div>
               <h3 className="py-4 text-md text-center tracking-wider font-raleway font-semibold truncate">
@@ -42,7 +44,7 @@ export default function MediaGrid({ movies, tvShows }: MediaGridProps) {
   }
 
   return (
-    <Tabs defaultValue="movies" className="w-full">
+    <Tabs defaultValue="movies" className=" py-12 w-full md:max-w-5xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-8xl 3xl:max-w-9xl">
       <TabsList className="grid w-full grid-cols-2 mb-4">
         <TabsTrigger value="movies" onClick={() => setActiveTab('movies')}>Movies</TabsTrigger>
         <TabsTrigger value="tvshows" onClick={() => setActiveTab('tvshows')}>TV Shows</TabsTrigger>
