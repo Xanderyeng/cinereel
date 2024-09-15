@@ -65,7 +65,7 @@ export default function MovieCarousel({ movies }: { movies: Movie[] }) {
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            className="grid grid-rows-1 grid-cols-1 md:grid-cols-3 gap-6"
             style={{ display: 'grid' }}
           >
             {visibleMovies.map((movie, index) => (
