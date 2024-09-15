@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import Hero from "@/components/hero/Hero";
 import MostPopularMovies from "@/components/most-popular-movies/MostPopularMovies";
 import Loading from "./loading";
+import MostPopularCelebs from "@/components/most-popular-celebs/MostPopularCelebs";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Suspense fallback={<Loading />}>
         <MostPopularMovies />
       </Suspense>
+        <MostPopularCelebs />
     </main>
   );
 }
