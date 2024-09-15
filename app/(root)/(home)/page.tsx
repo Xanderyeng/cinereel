@@ -1,10 +1,11 @@
 import React, { Suspense } from "react";
+import Loading from "./loading";
 import Hero from "@/components/hero/Hero";
 import MostPopularMovies from "@/components/most-popular-movies/MostPopularMovies";
-import Loading from "./loading";
 import MostPopularCelebs from "@/components/most-popular-celebs/MostPopularCelebs";
 import { TrendingMovies } from "@/lib/trending_movies";
 import { TrendingTvShows } from "@/lib/trending_tv_shows";
+
 import MediaGrid from "@/components/media-grid/MediaGrid";
 
 export default function Home() {

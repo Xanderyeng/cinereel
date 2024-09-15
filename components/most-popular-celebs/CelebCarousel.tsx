@@ -7,8 +7,8 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Celebrity, PopularCelebs } from '@/_types/types'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { ScrollArea } from "@/components/ui/scroll-area"
+
+import AnimatedDialog from './AnimatedModal'
 
 const CELEBS_PER_PAGE = 4
 
@@ -59,8 +59,8 @@ export default function CelebCarousel({ celebs }: CelebCarouselProps) {
                     quality={75}
                     loading="lazy"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    placeholder="blur"
-                    blurDataURL="https://image.tmdb.org/t/p/w200/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg"
+                    // placeholder="blur"
+                    // blurDataURL={`https://image.tmdb.org/t/p/w200${celeb.profile_path}`}
                   />
                 </div>
                 <h3 className="text-center font-semibold truncate">{celeb.name}</h3>
@@ -94,32 +94,10 @@ export default function CelebCarousel({ celebs }: CelebCarouselProps) {
       {displayedCelebs < celebs.length && (
         <Button onClick={loadMore}>Load More</Button>
       )}
-      <Dialog>
-        <DialogTrigger asChild>
-          <Button variant="outline">See Other Partners</Button>
-        </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]" aria-label="Other Partners" aria-describedby="other-partners-description">
-          <DialogHeader>
-            <DialogTitle className=" tracking-widest text-lg font-bold capitalize">Other Celebrities</DialogTitle>
-          </DialogHeader>
-          <ScrollArea className="h-[400px] pr-4">
-            {celebs.map((celeb) => (
-              <div key={celeb.id} className="flex items-center gap-4 mb-4 hover:cursor-pointer">
-                <Image
-                  src={`https://image.tmdb.org/t/p/w200${celeb.profile_path}`}
-                  alt={celeb.name}
-                  width={50}
-                  height={50}
-                  quality={75}
-                  loading="lazy"
-                  className="rounded-full"
-                />
-                <span>{celeb.name}</span>
-              </div>
-            ))}
-          </ScrollArea>
-        </DialogContent>
-      </Dialog>
+
+      <AnimatedDialog
+        celebrities={celebs}
+      />
     </div>
   </div>
   )
