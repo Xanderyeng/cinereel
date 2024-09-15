@@ -17,6 +17,20 @@ export interface Movie {
   vote_count: number;
 }
 
+export interface TVShow {
+  id: number;
+  name: string;
+  title: string;
+  poster_path: string;
+  first_air_date: string;
+  origin_country: string[];
+  vote_average: number;
+  vote_count: number;
+  popularity: number;
+  backdrop_path: string;
+  overview: string;
+}
+
 export interface KnownFor {
   adult: boolean;
   backdrop_path: string | null;
