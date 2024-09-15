@@ -51,7 +51,7 @@ export default function MovieCarousel({ movies }: { movies: Movie[] }) {
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [])
+  }, [handleNext, handlePrev])
 
   const visibleMovies = [
     movies[currentIndex],
@@ -76,7 +76,7 @@ export default function MovieCarousel({ movies }: { movies: Movie[] }) {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                style={{ width: '300px', height: '445px' }}
+                style={{ width: '300px', height: '440px' }}
               >
                  <Suspense fallback={"loading..."}>
                   <MovieCard movie={movie} />
