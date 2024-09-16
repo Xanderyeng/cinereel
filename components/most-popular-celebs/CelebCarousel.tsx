@@ -52,18 +52,18 @@ export default function CelebCarousel({ celebs }: CelebCarouselProps) {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -300 }}
           transition={{ duration: 0.5 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 "
         >
           {visibleCelebs.map((celeb) => (
             <Card key={celeb.id} className="w-full overflow-hidden hover:cursor-pointer border-none outline-none">
-              <CardContent className="p-4">
-                <div className="relative w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 mx-auto mb-2">
+              <CardContent className="p-4 border-none outline-none">
+                <div className="relative w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 mx-auto mb-2 border-none outline-none">
                   <Image
                     src={`https://image.tmdb.org/t/p/w200${celeb.profile_path}`}
                     alt={celeb.name}
                     fill
                     style={{ objectFit: 'cover' }}
-                    className="rounded-full"
+                    className="rounded-full border-none outline-none"
                     quality={75}
                     loading="lazy"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

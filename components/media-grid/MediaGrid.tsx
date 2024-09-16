@@ -21,7 +21,7 @@ export default function MediaGrid({ movies, tvShows }: MediaGridProps) {
 
   return (
     <Tabs defaultValue="movies" className=" py-12 px-8 md:px-0 w-full md:max-w-5xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-8xl 3xl:max-w-9xl">
-      <TabsList className="grid w-full grid-cols-2 mb-4 h-12 text-lg font-nunit font-semibold tracking-wider ">
+      <TabsList className="grid w-full grid-cols-2 mb-4 h-12 text-lg font-nunito font-semibold tracking-wider ">
         <TabsTrigger className="text-md" value="movies" onClick={() => setActiveTab('movies')}>Movies</TabsTrigger>
         <TabsTrigger className="text-md" value="tvshows" onClick={() => setActiveTab('tvshows')}>TV Shows</TabsTrigger>
       </TabsList>
