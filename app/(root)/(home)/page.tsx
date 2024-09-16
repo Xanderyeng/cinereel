@@ -13,7 +13,7 @@ export default function Home() {
   // const tvShows = await fetchTVShows()
 
   return (
-    <main className="flex flex-col min-h-[90dvh] max-w-full mx-auto relative items-center justify-between p-0 outline outline-1 outline-fuchsia-500">
+    <main className="flex flex-col min-h-[90dvh] max-w-full mx-auto relative items-center justify-between p-0 overflow-hidden">
       <Hero />
       <Suspense fallback={<Loading />}>
         <MostPopularMovies />
