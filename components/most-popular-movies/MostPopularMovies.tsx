@@ -1,15 +1,14 @@
 import { Suspense } from "react";
-import { getPlaiceholder } from "plaiceholder";
-import MovieCarousel from "./MovieCarousel";
 import { Movie } from "@/_types/types";
-import { movies } from "@/lib/popular_movies";
+import { getPlaiceholder } from "plaiceholder";
 
-// Assuming you have a function to fetch movies from your API
-import { fetchMovies } from "@/lib/api";
-import Loading from "@/app/(root)/(home)/loading";
+import LoadingGrid from "../LoadingGrid";
+import MovieCarousel from "./MovieCarousel";
+import { getPopularMovies } from "@/lib/popularMovies";
 
 async function MostPopularMovies() {
-  const processedMovies = await fetchMovies();
+  // const processedMovies = await fetchMovies();
+  const movies = await getPopularMovies()
 
   //   const processedMovies = await Promise.all(
   //     movies.results.map(async (movie) => {
@@ -30,9 +29,9 @@ async function MostPopularMovies() {
       <h2 className="text-4xl font-bold font-raleway text-raleway text-center mb-8">
         Most Popular Movies
       </h2>
-      <MovieCarousel movies={processedMovies} />
-      {/* <Suspense fallback={<Loading />}>
-      </Suspense> */}
+      <Suspense fallback={<LoadingGrid />}>
+        <MovieCarousel movies={movies} />
+      </Suspense>
     </section>
   );
 }

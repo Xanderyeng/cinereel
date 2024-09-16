@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import Loading from "./loading";
+import Loading from "./loadingg";
 import Hero from "@/components/hero/Hero";
 import MostPopularMovies from "@/components/most-popular-movies/MostPopularMovies";
 import MostPopularCelebs from "@/components/most-popular-celebs/MostPopularCelebs";
@@ -13,11 +13,11 @@ export default function Home() {
   // const tvShows = await fetchTVShows()
 
   return (
-    <main className="flex flex-col min-h-[90dvh] max-w-full mx-auto relative items-center justify-between p-0 outline outline-1 outline-fuchsia-500">
+    <main className="flex flex-col min-h-[90dvh] max-w-full mx-auto relative items-center justify-between p-0 overflow-hidden">
       <Hero />
-      <Suspense fallback={<Loading />}>
         <MostPopularMovies />
-      </Suspense>
+      {/* <Suspense fallback={<Loading />}>
+      </Suspense> */}
         <MostPopularCelebs />
         <Suspense fallback={<Loading />}>
           <MediaGrid 

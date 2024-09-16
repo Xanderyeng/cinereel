@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { Celebrity, PopularCelebs } from '@/_types/types'
+import { Celebrity } from '@/_types/types'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 
@@ -29,7 +29,15 @@ export default function CelebCarousel({ celebs }: CelebCarouselProps) {
   }
 
   const loadMore = () => {
-    setDisplayedCelebs((prev) => Math.min(prev + CELEBS_PER_PAGE, celebs.length))
+    setDisplayedCelebs((prev) => {
+      const newDisplayed = Math.min(prev + CELEBS_PER_PAGE, celebs.length)
+      if (newDisplayed > prev) {
+        setTimeout(() => {
+          setCurrentPage((currentPage) => currentPage + 1)
+        }, 100)
+      }
+      return newDisplayed
+    })
   }
 
   const visibleCelebs = celebs.slice(currentPage * CELEBS_PER_PAGE, (currentPage + 1) * CELEBS_PER_PAGE)
@@ -91,13 +99,11 @@ export default function CelebCarousel({ celebs }: CelebCarouselProps) {
       </Button>
     )}
     <div className="mt-8 flex justify-center gap-4">
-      {displayedCelebs < celebs.length && (
-        <Button onClick={loadMore}>Load More</Button>
-      )}
-
-      <AnimatedDialog
-        celebrities={celebs}
-      />
+      <Button onClick={loadMore}>Load More</Button>
+      {/* {displayedCelebs < celebs.length && (
+      )} */}
+      {/* MODAL DIALOG WINDOW */}
+      <AnimatedDialog celebrities={celebs} />
     </div>
   </div>
   )
