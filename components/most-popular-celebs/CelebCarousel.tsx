@@ -7,8 +7,8 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Celebrity, PopularCelebs } from '@/_types/types'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { ScrollArea } from "@/components/ui/scroll-area"
+
+import AnimatedDialog from './AnimatedModal'
 
 const CELEBS_PER_PAGE = 4
 
@@ -47,7 +47,7 @@ export default function CelebCarousel({ celebs }: CelebCarouselProps) {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
         >
           {visibleCelebs.map((celeb) => (
-            <Card key={celeb.id} className="w-full">
+            <Card key={celeb.id} className="w-full overflow-hidden hover:cursor-pointer border-none outline-none">
               <CardContent className="p-4">
                 <div className="relative w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 mx-auto mb-2">
                   <Image
@@ -56,6 +56,11 @@ export default function CelebCarousel({ celebs }: CelebCarouselProps) {
                     fill
                     style={{ objectFit: 'cover' }}
                     className="rounded-full"
+                    quality={75}
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    // placeholder="blur"
+                    // blurDataURL={`https://image.tmdb.org/t/p/w200${celeb.profile_path}`}
                   />
                 </div>
                 <h3 className="text-center font-semibold truncate">{celeb.name}</h3>
@@ -89,30 +94,10 @@ export default function CelebCarousel({ celebs }: CelebCarouselProps) {
       {displayedCelebs < celebs.length && (
         <Button onClick={loadMore}>Load More</Button>
       )}
-      <Dialog>
-        <DialogTrigger asChild>
-          <Button variant="outline">See Other Partners</Button>
-        </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle>Other Partners</DialogTitle>
-          </DialogHeader>
-          <ScrollArea className="h-[400px] pr-4">
-            {celebs.map((celeb) => (
-              <div key={celeb.id} className="flex items-center gap-4 mb-4">
-                <Image
-                  src={`https://image.tmdb.org/t/p/w200${celeb.profile_path}`}
-                  alt={celeb.name}
-                  width={50}
-                  height={50}
-                  className="rounded-full"
-                />
-                <span>{celeb.name}</span>
-              </div>
-            ))}
-          </ScrollArea>
-        </DialogContent>
-      </Dialog>
+
+      <AnimatedDialog
+        celebrities={celebs}
+      />
     </div>
   </div>
   )

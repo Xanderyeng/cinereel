@@ -27,6 +27,7 @@ export interface TVShow {
   vote_average: number;
   vote_count: number;
   popularity: number;
+  blurDataURL: string | null;
   backdrop_path: string;
   overview: string;
 }

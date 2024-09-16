@@ -1,8 +1,10 @@
-import type { Metadata } from "next";
-import { Inter, Lato, Raleway, Ubuntu, Zilla_Slab, Nunito } from "next/font/google";
 import "./globals.css";
+import type { Metadata } from "next";
+
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/_components/theme-provider";
+import { Inter, Lato, Raleway, Ubuntu, Zilla_Slab, Nunito } from "next/font/google";
+
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 

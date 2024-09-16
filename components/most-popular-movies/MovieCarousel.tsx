@@ -6,6 +6,7 @@ import { ChevronRight, ChevronLeft } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import MovieCard from './MovieCard'
 import { Movie } from '@/_types/types'
+import { useSwipeable } from 'react-swipeable'
 
 const cardVariants = {
   hidden: { opacity: 0, x: 50 },
@@ -53,6 +54,12 @@ export default function MovieCarousel({ movies }: { movies: Movie[] }) {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [handleNext, handlePrev])
 
+  const handlers = useSwipeable({
+    onSwipedLeft: handleNext,
+    onSwipedRight: handlePrev,
+    trackMouse: true
+  })
+
   const visibleMovies = [
     movies[currentIndex],
     movies[(currentIndex + 1) % movies.length],
@@ -60,7 +67,7 @@ export default function MovieCarousel({ movies }: { movies: Movie[] }) {
   ]
 
   return (
-    <div className="relative">
+    <div className="relative" {...handlers}>
       <div className="overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.div
@@ -76,9 +83,10 @@ export default function MovieCarousel({ movies }: { movies: Movie[] }) {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                style={{ width: '300px', height: '440px' }}
+                className="w-full h-full px-8 md:px-4"
+                // style={{ width: '300px', height: '440px' }}
               >
-                 <Suspense fallback={"loading..."}>
+                 <Suspense fallback={<div className="w-full h-[440px] bg-gray-200 animate-pulse rounded-lg"></div>}>
                   <MovieCard movie={movie} />
                 </Suspense>
               </motion.div>
@@ -87,14 +95,14 @@ export default function MovieCarousel({ movies }: { movies: Movie[] }) {
         </AnimatePresence>
       </div>
       <Button
-        className="absolute top-1/2 -left-16 transform -translate-y-1/2"
+        className="absolute top-1/2 -left-16 transform -translate-y-1/2 hidden lg:block"
         onClick={handlePrev}
         aria-label="Previous movies"
       >
         <ChevronLeft className="h-4 w-4" />
       </Button>
       <Button
-        className="absolute top-1/2 -right-16 transform -translate-y-1/2"
+        className="absolute top-1/2 -right-16 transform -translate-y-1/2 hidden lg:block"
         onClick={handleNext}
         aria-label="Next movies"
       >
