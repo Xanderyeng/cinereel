@@ -7,11 +7,11 @@ interface GoogleTagManagerProps {
 const GoogleTagManager = ({ containderId }: GoogleTagManagerProps) => {
   return (
     <>
-      {/* <Script
+      <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GTM_ID}   
  `}
         strategy="afterInteractive"
-      /> */}
+      />
       <Script
         id="google-tag-manager"
         strategy="afterInteractive"

@@ -33,7 +33,7 @@ export default function RootLayout({
      <>
      <html lang="en" suppressHydrationWarning>
        <head>
-        <GoogleTagManager containderId={`${process.env.NEXT_PUBLIC_GTM_ID}`} />
+        <GoogleTagManager containderId="GTM-TJCF55LG" />
        </head>
        <body className={`${inter.className} ${lato.className}  ${ubuntu.className} ${zilla_slab.className} ${nunito.className} ${raleway.className}`}>
          <ThemeProvider
