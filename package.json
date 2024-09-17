@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
+    "@next/third-parties": "^14.2.12",
     "@plaiceholder/next": "^3.0.0",
     "@radix-ui/react-aspect-ratio": "^1.1.0",
     "@radix-ui/react-dialog": "^1.1.1",
@@ -30,7 +31,7 @@
     "clsx": "^2.1.1",
     "framer-motion": "^11.5.4",
     "lucide-react": "^0.441.0",
-    "next": "14.2.3",
+    "next": "^14.2.12",
     "next-themes": "^0.3.0",
     "pretier": "^0.0.1",
     "prettier-plugin-tailwindcss": "^0.6.6",

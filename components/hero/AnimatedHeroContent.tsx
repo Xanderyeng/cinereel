@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
+import { sendGTMEvent } from '@next/third-parties/google'
 
 const letterAnimation = {
   hidden: { opacity: 0, y: 50 },
@@ -39,7 +40,7 @@ export default function AnimatedHeroContent() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: title.length * 0.05 + 0.5, duration: 0.5 }}
       >
-        <Button className="mt-8">
+        <Button className="mt-8" onClick={() => sendGTMEvent({ event: 'buttonClicked', value: 'xyz' })}>
           See Trending
         </Button>
       </motion.div>

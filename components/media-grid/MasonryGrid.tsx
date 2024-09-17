@@ -46,9 +46,9 @@ export default function MasonryGrid({ items }: MasonryGridProps) {
             ${index === 6 ? 'sm:col-start-3 sm:row-start-3' : ''}
           `}
         >
-          <Card className="w-full h-full hover:scale-105 transition-all duration-300 hover:cursor-pointer overflow-hidden outline outline- outline-yellow-500">
+          <Card className="w-full h-full hover:scale-105 transition-all duration-300 hover:cursor-pointer overflow-hidden outline outline-0 outline-yellow-500">
             <CardContent className="p-0 h-full">
-              <div className="relative w-full h-[320px] pb-0">
+              <div className="relative w-full h-[320px] aspect-[16/9] pb-0">
                 <Image
                   src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
                   alt={item.title || (item as TVShow).name}
