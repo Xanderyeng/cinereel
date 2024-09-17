@@ -7,6 +7,7 @@ import { Inter, Lato, Raleway, Ubuntu, Zilla_Slab, Nunito } from "next/font/goog
 
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
+import GoogleTagManager from "@/_GoogleTagManager/GoogleTagManager";
 
 const inter = Inter({ subsets: ["latin"], fallback: ["system-ui", "Arial", "sans-serif"], variable: '--font-inter' });
 const lato = Lato({ subsets: ["latin"], weight: ["400"], fallback: ["system-ui", "Arial", "sans-serif"], variable: '--font-lato' });
@@ -31,7 +32,9 @@ export default function RootLayout({
   return (
      <>
      <html lang="en" suppressHydrationWarning>
-       {/* <head /> */}
+       <head>
+        <GoogleTagManager containderId={`${process.env.NEXT_PUBLIC_GTM_ID}`} />
+       </head>
        <body className={`${inter.className} ${lato.className}  ${ubuntu.className} ${zilla_slab.className} ${nunito.className} ${raleway.className}`}>
          <ThemeProvider
            attribute="class"

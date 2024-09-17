@@ -46,15 +46,18 @@ export default function MasonryGrid({ items }: MasonryGridProps) {
             ${index === 6 ? 'sm:col-start-3 sm:row-start-3' : ''}
           `}
         >
-          <Card className="w-full h-full hover:scale-105 transition-all duration-300 hover:cursor-pointer overflow-hidden outline outline-0 outline-yellow-500">
+          <Card className="w-full h-full hover:scale-105 transition-all duration-300 hover:cursor-pointer overflow-hidden outline outline- outline-yellow-500">
             <CardContent className="p-0 h-full">
-              <div className="relative w-full h-[350px] pb-0">
+              <div className="relative w-full h-[320px] pb-0">
                 <Image
                   src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
                   alt={item.title || (item as TVShow).name}
-                  fill
+                  layout="intrinsic"
+                  width={800}
+                  height={400}
+                  // fill
                   priority
-                  style={{ objectFit: 'cover', objectPosition: 'top' }}
+                  style={{ objectFit: 'cover', objectPosition: 'top', height: '100%', width: '100%' }}
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
