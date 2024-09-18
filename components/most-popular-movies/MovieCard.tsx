@@ -12,6 +12,7 @@ export default function MovieCard({ movie }: { movie: Movie & { blurDataURL: str
           src={`https://image.tmdb.org/t/p/w400/${movie.poster_path}`}
           alt={movie.title}
           fill
+          loading="lazy"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           style={{ objectFit: "cover" }}
           placeholder={movie.blurDataURL ? "blur" : "empty"}

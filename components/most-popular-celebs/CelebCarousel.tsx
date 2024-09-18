@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import { sendGTMEvent } from '@next/third-parties/google'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Celebrity } from '@/_types/types'
@@ -38,6 +39,7 @@ export default function CelebCarousel({ celebs }: CelebCarouselProps) {
       }
       return newDisplayed
     })
+    sendGTMEvent({ event: 'buttonClicked', value: 'Load More' })
   }
 
   const visibleCelebs = celebs.slice(currentPage * CELEBS_PER_PAGE, (currentPage + 1) * CELEBS_PER_PAGE)
@@ -100,10 +102,8 @@ export default function CelebCarousel({ celebs }: CelebCarouselProps) {
     )}
     <div className="mt-8 flex justify-center gap-4">
       <Button onClick={loadMore}>Load More</Button>
-      {/* {displayedCelebs < celebs.length && (
-      )} */}
       {/* MODAL DIALOG WINDOW */}
-      <AnimatedDialog celebrities={celebs} />
+      <AnimatedDialog celebrities={celebs} gtmEvent={sendGTMEvent} />
     </div>
   </div>
   )

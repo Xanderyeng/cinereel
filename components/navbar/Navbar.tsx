@@ -28,7 +28,7 @@ const Navbar = () => {
             whileHover={{ scale: 1.1 }}
             transition={{ type: 'spring', stiffness: 500 }}
           >
-            cinema
+            CineReel
           </motion.span>
         </motion.span>
         <div className='flex items-center space-x-4'>

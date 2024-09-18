@@ -7,7 +7,7 @@ export default function Hero() {
     <section className="relative h-[70dvh] w-full bg-white dark:bg-gray-950">
       <Image
         src="/hero-banner.webp"
-        alt="Movie collage representing ReelFlix's diverse content"
+        alt="Movie collage representing Cinereels's diverse content"
         fill
         style={{objectFit: "cover"}}	
         priority

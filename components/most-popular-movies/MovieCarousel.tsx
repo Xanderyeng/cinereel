@@ -64,6 +64,7 @@ export default function MovieCarousel({ movies }: { movies: Movie[] }) {
     movies[currentIndex],
     movies[(currentIndex + 1) % movies.length],
     movies[(currentIndex + 2) % movies.length],
+    // movies[(currentIndex + 3) % movies.length],
   ]
 
   return (
