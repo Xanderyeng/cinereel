@@ -69,7 +69,7 @@ export default function MovieCarousel({ movies }: { movies: Movie[] }) {
 
   return (
     <div className="relative" {...handlers}>
-      <div className="overflow-hidden">
+      <div className="overflow-hidden md:overflow-visible">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}

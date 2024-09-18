@@ -8,6 +8,7 @@ import { inter, lato, ubuntu, zilla_slab, nunito, raleway } from "./fonts";
 
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
+import BottomNav from "@/components/navbar/BottomNavbar";
 
 export const metadata: Metadata = {
   title: "Cinema",
@@ -37,6 +38,7 @@ export default function RootLayout({
           >
             <Navbar />
             {children}
+            <BottomNav />
             <Footer />
             <SpeedInsights />
           </ThemeProvider>

@@ -1,15 +1,15 @@
 import React, { Suspense } from "react";
-import Loading from "./loadingg";
+import Loading from "./loading";
 import Hero from "@/components/hero/Hero";
+import getMovies from "@/lib/getMovies";
 import MostPopularMovies from "@/components/most-popular-movies/MostPopularMovies";
 import MostPopularCelebs from "@/components/most-popular-celebs/MostPopularCelebs";
-import { TrendingMovies } from "@/lib/trending_movies";
 import { TrendingTvShows } from "@/lib/trending_tv_shows";
 
 import MediaGrid from "@/components/media-grid/MediaGrid";
 
-export default function Home() {
-  // const movies = await fetchMovies()
+export default async function Home() {
+  const movies = await getMovies()
   // const tvShows = await fetchTVShows()
 
   return (
@@ -21,7 +21,7 @@ export default function Home() {
         <MostPopularCelebs />
         <Suspense fallback={<Loading />}>
           <MediaGrid 
-            movies={TrendingMovies.results.map(movie => ({
+            movies={movies.map(movie => ({
               ...movie,
               title: movie.title,
               blurDataURL: '' 

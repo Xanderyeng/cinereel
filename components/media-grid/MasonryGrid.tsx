@@ -1,3 +1,4 @@
+'use client'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Card, CardContent } from "@/components/ui/card"
@@ -5,6 +6,7 @@ import { Movie, TVShow } from "@/_types/types"
 
 interface MasonryGridProps {
   items: (Movie | TVShow)[]
+   type: 'movie' | 'tvshows'
 }
 
 const cardVariants = {
@@ -21,7 +23,9 @@ const cardVariants = {
   }
 }
 
-export default function MasonryGrid({ items }: MasonryGridProps) {
+export default function MasonryGrid({ items, type }: MasonryGridProps) {
+
+  // console.log(items)
   return (
     <motion.div 
       className="grid grid-cols-1 gap-y-8 md:gap-y-6 sm:grid-cols-2 lg:grid-cols-4 gap-6"

@@ -8,8 +8,9 @@ import { TVShow } from "@/_types/types"
 import MasonryGrid from './MasonryGrid'
 
 interface MediaGridProps {
-  movies: Movie[]
-  tvShows: TVShow[]
+  movies?: Movie[]
+  tvShows?: TVShow[]
+  type: 'movie' | 'tvshows'
 }
 
 const tabVariants = {
@@ -27,10 +28,10 @@ export default function MediaGrid({ movies, tvShows }: MediaGridProps) {
         <TabsTrigger className="text-md" value="tvshows" onClick={() => (setActiveTab('tvshows'), sendGTMEvent({ event: 'buttonClicked', value: 'See Trending Button' }))}>TV Shows</TabsTrigger>
       </TabsList>
       <TabsContent value="movies">
-        <MasonryGrid items={movies} />
+        <MasonryGrid items={movies || []} type="movie" />
       </TabsContent>
       <TabsContent value="tvshows">
-        <MasonryGrid items={tvShows} />
+        <MasonryGrid items={tvShows || []} type="tvshows" />
       </TabsContent>
     </Tabs>
   )
