@@ -64,11 +64,12 @@ export default function MovieCarousel({ movies }: { movies: Movie[] }) {
     movies[currentIndex],
     movies[(currentIndex + 1) % movies.length],
     movies[(currentIndex + 2) % movies.length],
+    // movies[(currentIndex + 3) % movies.length],
   ]
 
   return (
     <div className="relative" {...handlers}>
-      <div className="overflow-hidden">
+      <div className="overflow-hidden md:overflow-visible">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}

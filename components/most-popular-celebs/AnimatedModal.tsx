@@ -9,6 +9,7 @@ import { Button } from '../ui/button'
 
 interface AnimatedDialogProps {
   celebrities: Celebrity[]
+  gtmEvent: (event: { event: string, value: string }) => void
 }
 
 const dialogVariants = {
@@ -38,12 +39,12 @@ const itemVariants = {
   })
 }
 
-export default function AnimatedDialog({ celebrities }: AnimatedDialogProps) {
+export default function AnimatedDialog({ celebrities, gtmEvent }: AnimatedDialogProps) {
   return (
     <AnimatePresence>
         <Dialog>
         <DialogTrigger asChild>
-          <Button variant="outline">See Other Partners</Button>
+          <Button variant="outline" onClick={() => gtmEvent({ event: 'buttonClicked', value: 'See Other Partners' })}>See Other Partners</Button>
         </DialogTrigger>
         <DialogContent className=" max-w-[90vw] rounded-lg md:rounded-md sm:max-w-[425px]" aria-description='Other Partners' aria-label="Other Partners" aria-describedby="other-partners">
             <motion.div

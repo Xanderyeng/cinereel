@@ -10,7 +10,7 @@ const letterAnimation = {
 }
 
 export default function AnimatedHeroContent() {
-  const title = "Welcome to ReelFlix"
+  const title = "Welcome to CineReel"
 
   return (
     <>
@@ -21,14 +21,14 @@ export default function AnimatedHeroContent() {
             variants={letterAnimation}
             initial="hidden"
             animate="visible"
-            transition={{ delay: index * 0.05, duration: 0.5 }}
+            transition={{ delay: index * 0.08, duration: 0.5 }}
           >
             {char}
           </motion.span>
         ))}
       </h1>
       <motion.p 
-        className="text-gray-700 dark:text-gray-200 mt-4 text-center text-sm sm:text-base md:text-lg"
+        className="text-gray-700 dark:text-gray-200 mt-4 text-center font-semibold text-sm sm:text-base md:text-lg"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: title.length * 0.05, duration: 0.5 }}
@@ -38,9 +38,9 @@ export default function AnimatedHeroContent() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: title.length * 0.05 + 0.5, duration: 0.5 }}
+        transition={{ delay: title.length * 0.06 + 0.5, duration: 0.5 }}
       >
-        <Button className="mt-8" onClick={() => sendGTMEvent({ event: 'buttonClicked', value: 'xyz' })}>
+        <Button className="mt-8" onClick={() => sendGTMEvent({ event: 'buttonClicked', value: 'See Trending Button' })}>
           See Trending
         </Button>
       </motion.div>
