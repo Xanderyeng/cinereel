@@ -21,6 +21,7 @@ export default async function Home() {
         <MostPopularCelebs />
         <Suspense fallback={<Loading />}>
           <MediaGrid 
+            type="movie"
             movies={movies.map(movie => ({
               ...movie,
               title: movie.title,

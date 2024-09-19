@@ -19,19 +19,19 @@ const tabVariants = {
 }
 
 export default function MediaGrid({ movies, tvShows }: MediaGridProps) {
-  const [activeTab, setActiveTab] = useState<'movies' | 'tvshows'>('movies');
+  const [activeTab, setActiveTab] = useState<'movie' | 'tvshows'>('movie');
 
   return (
-    <Tabs defaultValue="movies" className=" py-12 px-8 md:px-0 w-full md:max-w-5xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-8xl 3xl:max-w-9xl">
+    <Tabs defaultValue="movie" className=" py-12 px-8 md:px-0 w-full md:max-w-5xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-8xl 3xl:max-w-9xl">
       <TabsList className="grid w-full grid-cols-2 mb-4 h-12 text-lg font-nunit font-semibold tracking-wider ">
-        <TabsTrigger className="text-md" value="movies" onClick={() => (setActiveTab('movies'), sendGTMEvent({ event: 'buttonClicked', value: 'See Trending Button' }))}>Movies</TabsTrigger>
+        <TabsTrigger className="text-md" value="movie" onClick={() => (setActiveTab('movie'), sendGTMEvent({ event: 'buttonClicked', value: 'See Trending Button' }))}>Movies</TabsTrigger>
         <TabsTrigger className="text-md" value="tvshows" onClick={() => (setActiveTab('tvshows'), sendGTMEvent({ event: 'buttonClicked', value: 'See Trending Button' }))}>TV Shows</TabsTrigger>
       </TabsList>
-      <TabsContent value="movies">
-        <MasonryGrid items={movies || []} type="movie" />
+      <TabsContent value="movie">
+        <MasonryGrid items={movies || []} type={activeTab} />
       </TabsContent>
       <TabsContent value="tvshows">
-        <MasonryGrid items={tvShows || []} type="tvshows" />
+        <MasonryGrid items={tvShows || []} type={activeTab} />
       </TabsContent>
     </Tabs>
   )
