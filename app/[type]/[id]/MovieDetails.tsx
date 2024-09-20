@@ -1,14 +1,15 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import { motion, AnimatePresence } from 'framer-motion'
+
+import { useState, useEffect } from 'react'
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ChartConfig } from "@/components/ui/chart"
+import { motion, AnimatePresence } from 'framer-motion'
 
-import { Play, Heart, Bookmark, TrendingUp } from 'lucide-react'
 import { UserScoreChart } from '@/components/UserScoreChart'
+import { Play, Heart, Bookmark, TrendingUp } from 'lucide-react'
 
 interface MovieDetailsProps {
     movie: any;
@@ -27,7 +28,7 @@ export default function MoviePage({ movie }: MovieDetailsProps){
     }, 500)
 
     return () => clearTimeout(timer)
-  }, [movie.userScore])
+  }, [movie.userScore, movie.popularity])
 
   const chartData = [
     { score: userScoreProgress, fill: "var(--color-score)" },
@@ -70,7 +71,6 @@ export default function MoviePage({ movie }: MovieDetailsProps){
             <Image
               src={`https://image.tmdb.org/t/p/w780/${movie.poster_path}`}
               alt={movie.title}
-            //   fill
               style={{ objectFit: 'cover', objectPosition: 'center' }}
               width={800}
               height={1200}
@@ -120,9 +120,7 @@ export default function MoviePage({ movie }: MovieDetailsProps){
                whileTap={{ scale: 0.95 }}
              >
                <Image
-                 src={director.profile_path ? `https://image.tmdb.org/t/p/w400/${director.profile_path}` : '/image_reel_placeholder.webp'}
-                //  https://image.tmdb.org/t/p/w400/${director.profile_path}
-                //  actor.profile_path ? `https://image.tmdb.org/t/p/w400/${director.profile_path}` : '/image_reel_placeholder.webp'
+                 src={director?.profile_path ? `https://image.tmdb.org/t/p/w400/${director.profile_path}` : '/image_reel_placeholder.webp'}
                  alt={director.name}
                  width={300}
                  height={450}
@@ -137,26 +135,6 @@ export default function MoviePage({ movie }: MovieDetailsProps){
                 </motion.div>
              </div>
               )}
-              {/* <div className=" w-[80%]">
-                <h4 className="font-semibold">{director ? director.name : 'N/A'}</h4>
-                <p className="text-sm text-muted-foreground">Director</p>
-                 <motion.div
-                key={director.name}
-                className="bg-card rounded-lg overflow-hidden shadow-md"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Image
-                  src={`https://image.tmdb.org/t/p/w400/${director.profile_path}`}
-                  alt={director.name}
-                  loading='lazy'
-                  width={200}
-                  height={300}
-                  className="w-full h-48 object-cover"
-                />
-                 </motion.div>
-                
-              </div> */}
               {screenplay && (
                <div className=" md:w-[80%]">
                <h4 className="font-semibold">{screenplay ? screenplay.name : 'N/A'}</h4>
@@ -168,7 +146,7 @@ export default function MoviePage({ movie }: MovieDetailsProps){
                whileTap={{ scale: 0.95 }}
              >
                <Image
-                 src={screenplay.profile_path ? `https://image.tmdb.org/t/p/w400/${screenplay.profile_path}` : '/image_reel_placeholder.webp'}
+                 src={screenplay?.profile_path ? `https://image.tmdb.org/t/p/w400/${screenplay.profile_path}` : '/image_reel_placeholder.webp'}
                  alt={screenplay.name}
                  width={300}
                  height={450}
@@ -183,44 +161,6 @@ export default function MoviePage({ movie }: MovieDetailsProps){
                 </motion.div>
              </div>
               )}
-                {/* <h4 className="font-semibold">{screenplay ? screenplay.name : 'N/A'}</h4>
-                <p className="text-sm text-muted-foreground">Screenplay</p>
-                
-                <motion.div
-                key={screenplay.name}
-                className="relative w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 mx-auto mb-2 border-none outline-none shadow-md"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                  <Image
-                    src={`https://image.tmdb.org/t/p/w200${screenplay.profile_path}`}
-                    alt={screenplay.name}
-                    fill
-                    style={{ objectFit: 'cover' }}
-                    className="rounded-full border-none outline-none"
-                    quality={75}
-                    loading="lazy"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    placeholder="blur"
-                    blurDataURL={`https://image.tmdb.org/t/p/w200${screenplay.profile_path}`}
-                  />
-                </motion.div>  */}
-                
-                {/* <motion.div
-                key={screenplay.name}
-                className="bg-card rounded-lg overflow-hidden shadow-md"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Image
-                  src={`https://image.tmdb.org/t/p/w400/${screenplay.profile_path}`}
-                  alt={screenplay.name}
-                  loading='lazy'
-                  width={200}
-                  height={300}
-                  className="w-full h-48 object-cover"
-                />
-                 </motion.div> */}
               {writer && (
                <div className=" md:w-[80%]">
                <h4 className="font-semibold">{writer ? writer.name : 'N/A'}</h4>
@@ -232,7 +172,7 @@ export default function MoviePage({ movie }: MovieDetailsProps){
                whileTap={{ scale: 0.95 }}
              >
                <Image
-                 src={screenplay.profile_path ? `https://image.tmdb.org/t/p/w400/${screenplay.profile_path}` : '/image_reel_placeholder.webp'}
+                 src={writer?.profile_path ? `https://image.tmdb.org/t/p/w400/${writer.profile_path}` : '/image_reel_placeholder.webp'}
                  alt={writer.name}
                  width={300}
                  height={450}

@@ -11,7 +11,7 @@ import Footer from "@/components/footer/Footer";
 import BottomNav from "@/components/navbar/BottomNavbar";
 
 export const metadata: Metadata = {
-  title: "Cinema",
+  title: "Cinereel",
   description: "Created by Alexander Chepkiyeng",
   icons: {
     icon: "/favicon.ico",

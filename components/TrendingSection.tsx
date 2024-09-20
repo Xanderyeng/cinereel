@@ -7,44 +7,11 @@ import { useState , useEffect} from 'react'
 import { Badge } from "@/components/ui/badge"
 import { useSwipeable } from 'react-swipeable'
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { ChevronRight, ChevronLeft } from 'lucide-react'
+import { TrendingSectionProps } from '@/_types/types'
 import { motion, AnimatePresence } from 'framer-motion'
-
-interface TrendingItem {
-  name: string
-  id: number
-  title: string
-  poster_path: string
-  vote_average: number
-  media_type: 'movie' | 'tvshow'
-}
-
-interface TrendingSectionProps {
-  items: TrendingItem[]
-  title: string
-}
-
-const cardVariants = {
-  hidden: { opacity: 0, x: 50 },
-  visible: (i: number) => ({
-    opacity: 1,
-    x: 0,
-    transition: {
-      delay: i * 0.1,
-      duration: 0.5,
-      ease: "easeOut"
-    }
-  }),
-  exit: (i: number) => ({
-    opacity: 0,
-    x: -50,
-    transition: {
-      delay: i * 0.1,
-      duration: 0.3,
-      ease: "easeIn"
-    }
-  })}
+import { ChevronRight, ChevronLeft } from 'lucide-react'
+import { Card, CardContent } from "@/components/ui/card"
+import { cardVariants } from '@/_utils/trendingCardVariants'
 
 export default function TrendingSection({ items, title }: TrendingSectionProps) {
   const [currentIndex, setCurrentIndex] = useState(0)

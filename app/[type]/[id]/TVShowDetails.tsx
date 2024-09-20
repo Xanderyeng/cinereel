@@ -1,44 +1,16 @@
-'use client'
-
-import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { UserScoreChart } from '@/components/UserScoreChart'
 import { Play, Star, Calendar, Clock } from 'lucide-react'
-import { ChartConfig } from '@/components/ui/chart'
 
 interface TVShowDetailsProps {
   tvShow: any;
 }
 
 export default function TVShowDetails({ tvShow }: TVShowDetailsProps) {
-  const [userScoreProgress, setUserScoreProgress] = useState(0)
-  const [selectedSeason, setSelectedSeason] = useState(0)
-  // tvShow.seasons[0]
-
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setUserScoreProgress(Math.ceil(tvShow.popularity))
-  //   }, 500)
-
-  //   return () => clearTimeout(timer)
-  // }, [tvShow.userScore])
-
-
-  // const chartData = [
-  //   { score: userScoreProgress, fill: "var(--color-score)" },
-  // ]
-
-  // const chartConfig = {
-  //   score: {
-  //     label: 'Score',
-  //     color: `hsl(${userScoreProgress * 1.2}, 100%, 50%)`,
-  //   },
-  // } satisfies ChartConfig
+  
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -71,9 +43,6 @@ export default function TVShowDetails({ tvShow }: TVShowDetailsProps) {
               {tvShow.first_air_date.split('-')[0]} • {tvShow.genres.map((g: any) => g.name).join(', ')}
             </p>
             <div className="flex items-center gap-4 mb-6">
-              {/* <UserScoreChart chartData={chartData} chartConfig={chartConfig}
-              /> */}
-              {/* score={tvShow.vote_average * 10}  */}
               <span className="font-semibold">User Score</span>
               <Button variant="outline" size="icon">
                 <Star className="h-4 w-4" />
@@ -114,7 +83,7 @@ export default function TVShowDetails({ tvShow }: TVShowDetailsProps) {
           <TabsContent value="seasons">
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
               {tvShow.seasons.map((season: any) => (
-                <Card key={season.id} className="cursor-pointer" onClick={() => setSelectedSeason(season)}>
+                <Card key={season.id} className="cursor-pointer">
                   <CardContent className="p-4">
                     <Image
                       src={`https://image.tmdb.org/t/p/w200${season.poster_path}`}

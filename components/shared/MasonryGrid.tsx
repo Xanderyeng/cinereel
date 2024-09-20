@@ -4,24 +4,11 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Movie, TVShow } from "@/_types/types"
 import { Card, CardContent } from "@/components/ui/card"
+import { cardVariants } from '@/_utils/masonryGridCardvariants'
 
 interface MasonryGridProps {
   items: (Movie | TVShow)[]
    type: 'movie' | 'tvshows'
-}
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.5, ease: "easeOut" }
-  },
-  exit: { 
-    opacity: 0, 
-    y: -30, 
-    transition: { duration: 0.3, ease: "easeIn" }
-  }
 }
 
 export default function MasonryGrid({ items, type }: MasonryGridProps) {

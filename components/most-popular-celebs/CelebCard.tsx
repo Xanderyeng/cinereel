@@ -1,24 +1,15 @@
-import { Celebrity, PopularCelebs } from "@/_types/types";
 import CelebCarousel from "./CelebCarousel";
-import { PopularMovieStars } from "@/lib/popular_movie_stars";
 
-// async function fetchCelebs(): Promise<Celebrity[]> {
-//   const response = await fetch(PopularCelebs);
-//   return response.results.slice(0, 10).map((celeb) => ({
-//     id: celeb.id,
-//     name: celeb.name,
-//     profile_path: celeb.profile_path,
-//     popularity: celeb.popularity,
-//   }));
-// }
+import { PopularCelebs } from "@/_types/types";
+import { getPopularCelebs } from "@/lib/getPopularCelebs";
 
-function fetchCelebs(): PopularCelebs["results"] {
-  // Slice the first 10 celebrities from the results array
-  return PopularMovieStars.results.slice(0, 10);
+async function fetchCelebs(): Promise<PopularCelebs["results"]> {
+  const data = await getPopularCelebs();
+  return data.results;
 }
 
-export default function PopularCelebrities() {
-  const celebs = fetchCelebs();
+export default async function PopularCelebrities() {
+  const celebs = await fetchCelebs();
 
   return (
     <section className="py-12">

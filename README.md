@@ -6,7 +6,7 @@ A modern, responsive web application for browsing movies and TV shows, built wit
 
 - Browse popular movies and TV shows
 - Server-side rendering for improved performance and SEO
-- Google tag and analytics inclusion.
+- Google tag manager and analytics inclusion.
 - View detailed information about movies and TV shows
 - Responsive design with mobile-friendly navigation
 - Animated UI elements using Framer Motion
@@ -42,6 +42,8 @@ A modern, responsive web application for browsing movies and TV shows, built wit
    Create a `.env.local` file in the root directory and add your API keys:
    ```
    TMDB_API_KEY=your_tmdb_api_key
+   ```
+   Remember to create an account on Google cloud console and obtain a google tag manager ID.
    ```
 
 4. Run the development server:

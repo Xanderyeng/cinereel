@@ -46,9 +46,6 @@ export default function AnimatedHeroContent() {
         initial={{ scale: 1 }}
         animate={{ scale: [1, 1.1, 1] }}
         transition={{ repeat: Infinity, duration: 2 }}
-        // initial={{ opacity: 0, y: 20 }}
-        // animate={{ opacity: 1, y: 0 }}
-        // transition={{ delay: title.length * 0.06 + 0.5, duration: 0.5 }}
       >
         <Button className=" dark:hover:bg-gray-950 dark:hover:text-white mt-8" onClick={() => (
           sendGTMEvent({ event: 'buttonClicked', value: 'See Trending Button' }),

@@ -7,6 +7,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 1,
-    }
+    },
+    {
+      url: 'https://cinema-reelflix.vercel.app/movies',
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 1,
+    },
+    {
+      url: 'https://cinema-reelflix.vercel.app/tvshows',
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 1,
+    },
+    {
+      url: 'https://cinema-reelflix.vercel.app/about',
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 1,
+    },
+    
   ]
 }

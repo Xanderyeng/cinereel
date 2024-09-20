@@ -1,7 +1,7 @@
 'use client'
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { FaGithub, FaTwitter, FaLinkedin, FaEnvelope } from "react-icons/fa"
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa"
 import ByLine from "./ByLine"
 
 export default function Footer() {
@@ -24,25 +24,28 @@ export default function Footer() {
         </div>
         <div className="mt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm mb-4 md:mb-0">© {currentYear} Cinereel. All rights reserved.</p>
+          <Link href="htpps://chepkiyeng.netlify.app" target="_blank" rel="noopener noreferrer">
           <ByLine>Alexander Chepkiyeng</ByLine>
-          <div className="flex align-middle gap-4">
+          </Link>
+          <div className="flex flex-row justify-center align-center gap-4">
             <motion.a
               href="https://github.com/xanderyeng/nextflix"
               target="_blank"
+              aria-label="View source code on GitHub"
               rel="noopener noreferrer"
-              className="bg-primary text-primary-foreground px-4 py-2 rounded-full flex items-center"
+              className="bg-primary text-primary-foreground px-4 py-1 rounded-full flex items-center"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <FaGithub className="mr-2" />
               View Source
             </motion.a>
-            <a href="mailto:alexander.chepkiyeng@spaceai.io" className="hover:text-primary transition-colors">
+            <Link href="mailto:alexander.chepkiyeng@spaceai.io" aria-label="Email Alexander Chepkiyeng" className="hover:text-primary transition-colors">
               <FaEnvelope size={24} />
-            </a>
-            <a href="https://www.linkedin.com/in/alexander-chepkiyeng/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+            </Link>
+            <Link href="https://www.linkedin.com/in/alexander-chepkiyeng/" target="_blank" rel="noopener noreferrer" aria-label="View Alexander Chepkiyeng's LinkedIn profile" className="hover:text-primary transition-colors">
               <FaLinkedin size={24} />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
