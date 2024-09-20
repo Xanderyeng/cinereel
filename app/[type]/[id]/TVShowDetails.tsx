@@ -136,7 +136,7 @@ export default function TVShowDetails({ tvShow }: TVShowDetailsProps) {
                 <Card key={actor.id}>
                   <CardContent className="p-4">
                     <Image
-                      src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
+                      src={actor.profile_path ? `https://image.tmdb.org/t/p/w400/${actor.profile_path}` : '/image_reel_placeholder.webp'}
                       alt={actor.name}
                       width={200}
                       height={300}

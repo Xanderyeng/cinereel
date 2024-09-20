@@ -61,13 +61,14 @@ export default function MoviePage({ movie }: MovieDetailsProps){
             />
           </motion.div>
         </AnimatePresence>
-        <div className="absolute inset-0 bg-gradient-to-t from-background to-background/20" />
+        {/* Banner gradient fade  */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background to-background/5 via-background/10" />
       </div>
       <div className="container mx-auto px-4 py-8 -mt-34 relative z-10 outline outline-0 outline-orange-500">
         <div className="flex flex-col md:flex-row gap-8  outline outline-0 outline-green-500">
           <div className="flex flex-row flex-auto md:w-1/3 outline outline-0 outline-fuchsia-500">
             <Image
-              src={`https://image.tmdb.org/t/p/w400/${movie.poster_path}`}
+              src={`https://image.tmdb.org/t/p/w780/${movie.poster_path}`}
               alt={movie.title}
             //   fill
               style={{ objectFit: 'cover', objectPosition: 'center' }}
@@ -119,7 +120,9 @@ export default function MoviePage({ movie }: MovieDetailsProps){
                whileTap={{ scale: 0.95 }}
              >
                <Image
-                 src={`https://image.tmdb.org/t/p/w400/${director.profile_path}`}
+                 src={director.profile_path ? `https://image.tmdb.org/t/p/w400/${director.profile_path}` : '/image_reel_placeholder.webp'}
+                //  https://image.tmdb.org/t/p/w400/${director.profile_path}
+                //  actor.profile_path ? `https://image.tmdb.org/t/p/w400/${director.profile_path}` : '/image_reel_placeholder.webp'
                  alt={director.name}
                  width={300}
                  height={450}
@@ -165,7 +168,7 @@ export default function MoviePage({ movie }: MovieDetailsProps){
                whileTap={{ scale: 0.95 }}
              >
                <Image
-                 src={`https://image.tmdb.org/t/p/w400/${screenplay.profile_path}`}
+                 src={screenplay.profile_path ? `https://image.tmdb.org/t/p/w400/${screenplay.profile_path}` : '/image_reel_placeholder.webp'}
                  alt={screenplay.name}
                  width={300}
                  height={450}
@@ -229,7 +232,7 @@ export default function MoviePage({ movie }: MovieDetailsProps){
                whileTap={{ scale: 0.95 }}
              >
                <Image
-                 src={`https://image.tmdb.org/t/p/w400/${writer.profile_path}`}
+                 src={screenplay.profile_path ? `https://image.tmdb.org/t/p/w400/${screenplay.profile_path}` : '/image_reel_placeholder.webp'}
                  alt={writer.name}
                  width={300}
                  height={450}
@@ -286,12 +289,12 @@ export default function MoviePage({ movie }: MovieDetailsProps){
                 whileTap={{ scale: 0.95 }}
               >
                 <Image
-                  src={`https://image.tmdb.org/t/p/w400/${actor.profile_path}`}
+                  src={actor.profile_path ? `https://image.tmdb.org/t/p/w400/${actor.profile_path}` : '/image_reel_placeholder.webp'}
                   alt={actor.name}
                   loading='lazy'
-                  width={200}
-                  height={300}
-                  className="w-full h-48 object-cover"
+                  width={300}
+                  height={450}
+                  className="w-full h-50 object-cover"
                 />
                 <div className="p-2">
                   <h4 className="font-semibold">{actor.name}</h4>

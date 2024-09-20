@@ -7,6 +7,7 @@ import MostPopularCelebs from "@/components/most-popular-celebs/MostPopularCeleb
 
 import getMovies from "@/lib/getMovies";
 import getTVShows from "@/lib/getTVShows";
+import TrendingSection from "@/components/TrendingSection";
 
 export default async function Home() {
   const movies = await getMovies()
@@ -18,8 +19,8 @@ export default async function Home() {
       <Suspense fallback={<Loading />}>
         <MostPopularMovies />
         <MostPopularCelebs />
-      </Suspense>
-        <Suspense fallback={<Loading />}>
+          <TrendingSection items={movies.map(movie => ({ ...movie, media_type: 'movie', name: movie.title }))} title="Trending Movies" />
+          <TrendingSection items={tvShows.map(show => ({ ...show, media_type: 'tvshow', name: show.name }))} title="Trending TV Shows" />
           <MediaGrid 
             type="movie"
             movies={movies.map(movie => ({
