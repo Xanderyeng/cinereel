@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, Suspense } from 'react'
+import { useState, useEffect, Suspense, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronRight, ChevronLeft } from 'lucide-react'
 import { Button } from "@/components/ui/button"
@@ -33,13 +33,13 @@ const cardVariants = {
 export default function MovieCarousel({ movies }: { movies: Movie[] }) {
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 3) % movies.length)
-  }
+  }, [movies.length])
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex - 3 + movies.length) % movies.length)
-  }
+  }, [movies.length])
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {

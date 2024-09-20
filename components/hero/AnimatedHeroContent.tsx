@@ -51,7 +51,7 @@ export default function AnimatedHeroContent() {
           sendGTMEvent({ event: 'buttonClicked', value: 'See Trending Button' }),
           scrollToTrending()
           )}>
-        See What's Trending
+        See What&#39;s Trending
         </Button>
       </motion.div>
     </>

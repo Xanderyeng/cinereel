@@ -114,7 +114,7 @@ export default function AboutPage() {
           <p className="text-lg mb-6">
             I am continuously looking for ways to improve Cinereel. If you have
             any suggestions, feedback, or would like to contribute to my
-            project, I'd love to hear from you!
+            project, I&#39;d love to hear from you!
           </p>
           <div className="flex justify-center gap-4">
             <Button asChild>
