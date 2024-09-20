@@ -22,7 +22,7 @@ A modern, responsive web application for browsing movies and TV shows, built wit
 
 1. Clone the repository:
    ```
-   git clone https://github.com/Xanderyeng/nextflix.git
+   git clone https://github.com/Xanderyeng/cinereel.git
    cd cinereel
    ```
 
