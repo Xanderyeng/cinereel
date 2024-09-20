@@ -3,7 +3,8 @@ import Loading from './loading'
 import { notFound } from 'next/navigation'
 import MovieDetails from './MovieDetails'
 import { getMovieDetails } from '@/lib/getMovieDetails'
-// import { getTVShowDetails } from '@/lib/getTVShowDetails'
+import TVShowDetails from './TVShowDetails'
+import { getTVShowDetails } from '@/lib/getTVShowDetails'
 
 export default async function MediaDetailsPage({ params }: { params: { type: string, id: string } }) {
 
@@ -18,15 +19,16 @@ let data
 
   if (params.type === 'movie') {
     data = await getMovieDetails(params.id)  
-  } else if (params.type === 'tv') {
-    // data = await getTVShowDetails(params.id)
+  } 
+  else if (params.type === 'tvshow') {
+    data = await getTVShowDetails(params.id)
   } else {
     notFound()
   }
 
-  if (!data) {
-    notFound()
-  }
+  // if (!data) {
+  //   notFound()
+  // }
 
   return (
     <>
@@ -36,7 +38,7 @@ let data
        </Suspense>
       ) : (
         <Suspense fallback={<Loading />}>
-        {/* <TVShowDetails tvShow={data} /> */}
+        <TVShowDetails tvShow={data} />
       </Suspense>
       )}
     </>

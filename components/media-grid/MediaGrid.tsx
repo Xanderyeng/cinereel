@@ -18,7 +18,7 @@ const tabVariants = {
   active: { x: 0, transition: { duration: 0.5, ease: "easeInOut" } }
 }
 
-export default function MediaGrid({ movies, tvShows }: MediaGridProps) {
+export default function MediaGrid({ movies, tvShows, type }: MediaGridProps) {
   const [activeTab, setActiveTab] = useState<'movie' | 'tvshows'>('movie');
 
   return (
