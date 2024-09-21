@@ -2,6 +2,12 @@
 
 A modern, responsive web application for browsing movies and TV shows, built with Next.js 14, React, and Tailwind CSS.
 
+![Screenshot 1](screenshot1.png){: style="width: 100%"}
+
+![Screenshot 2](dark.png){: style="width: 50%"}
+
+![Screenshot 3](light.png){: style="width: 50%"}
+
 ## Features
 
 - Browse popular movies and TV shows
@@ -17,6 +23,11 @@ A modern, responsive web application for browsing movies and TV shows, built wit
 
 - Node.js 14.x or later
 - npm or yarn
+- Typescript
+- Shadcn
+- Tailwind CSS
+- Framer-Motion
+- Google Cloud Account ( Google Tag Manager & Google Analytics )
 
 ### Installation
 
@@ -31,6 +42,7 @@ A modern, responsive web application for browsing movies and TV shows, built wit
    bun install
    ```
    or
+   ```
    npm install
    ```
    or
@@ -38,7 +50,7 @@ A modern, responsive web application for browsing movies and TV shows, built wit
    yarn install
    ```
 
-3. Set up environment variables:
+4. Set up environment variables:
    Create a `.env.local` file in the root directory and add your API keys:
    ```
    TMDB_API_KEY=your_tmdb_api_key
@@ -46,7 +58,7 @@ A modern, responsive web application for browsing movies and TV shows, built wit
    Remember to create an account on Google cloud console and obtain a google tag manager ID.
    ```
 
-4. Run the development server:
+5. Run the development server:
    ```
    bun run dev
    ```
@@ -59,7 +71,7 @@ A modern, responsive web application for browsing movies and TV shows, built wit
    npm dev
    ```
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the app.
+6. Open [http://localhost:3000](http://localhost:3000) in your browser to see the app.
 
 ## Deployment
 
