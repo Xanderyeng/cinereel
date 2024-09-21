@@ -1,5 +1,7 @@
 import Image from 'next/image'
+import { Suspense } from 'react'
 import AnimatedHeroContent from './AnimatedHeroContent'
+import Loading from '@/app/[type]/[id]/loading'
 
 export default function Hero() {
   return (
@@ -15,9 +17,11 @@ export default function Hero() {
         sizes="100vw"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent from-75% via-white/30 via-90% to-white to-100% dark:from-transparent dark:from-70% dark:via-gray-950/90 dark:via-95% dark:to-gray-950 dark:to-100%"></div>
+      <Suspense fallback={<Loading />}>
       <div className="absolute inset-0 flex flex-col items-center justify-center px-4 py-8">
-        <AnimatedHeroContent />
-      </div>
+          <AnimatedHeroContent />
+        </div>
+      </Suspense>
     </section>
   )
 }

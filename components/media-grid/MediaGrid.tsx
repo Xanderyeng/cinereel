@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import dynamic from "next/dynamic";
 import { sendGTMEvent } from "@next/third-parties/google";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Movie } from "@/_types/types";
 import { TVShow } from "@/_types/types";
-import MasonryGrid from "../shared/MasonryGrid";
 
 interface MediaGridProps {
   movies?: Movie[];
@@ -13,15 +13,15 @@ interface MediaGridProps {
   type: "movie" | "tvshows";
 }
 
-const tabVariants = {
-  inactive: { x: 0 },
-  active: { x: 0, transition: { duration: 0.5, ease: "easeInOut" } },
-};
-
 export default function MediaGrid({ movies, tvShows, type }: MediaGridProps) {
   const [activeTab, setActiveTab] = useState<"movie" | "tvshows">("movie");
+  const DynamicMasonryGrid = dynamic(() => import('../shared/MasonryGrid'), {
+    loading: () => <p>Loading...</p>,
+    suspense: true,
+  });
 
   return (
+    <Suspense fallback={<p>Loading...</p>}>
     <Tabs
       defaultValue="movie"
       className=" py-12 px-8 md:px-0 w-full md:max-w-5xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-8xl 3xl:max-w-9xl"
@@ -55,11 +55,12 @@ export default function MediaGrid({ movies, tvShows, type }: MediaGridProps) {
         </TabsTrigger>
       </TabsList>
       <TabsContent value="movie">
-        <MasonryGrid items={movies || []} type={activeTab} />
+        <DynamicMasonryGrid items={movies || []} type={activeTab} />
       </TabsContent>
       <TabsContent value="tvshows">
-        <MasonryGrid items={tvShows || []} type={activeTab} />
+        <DynamicMasonryGrid items={tvShows || []} type={activeTab} />
       </TabsContent>
     </Tabs>
+    </Suspense>
   );
 }
