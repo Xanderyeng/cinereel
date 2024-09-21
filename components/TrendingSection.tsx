@@ -55,7 +55,7 @@ export default function TrendingSection({ items, title }: TrendingSectionProps) 
 
 
   return (
-    <section id="trending-section" className="flex flex-col gap-4 my-8 max-w-[90vw] mx-auto">
+    <section id="trending-section" className="relative flex flex-col gap-4 my-8 max-w-[90vw] mx-auto">
       <h2 className="text-xl lg:text-2xl font-bold mb-3 text-white capitalize">{title}</h2>
       <div className="relative" {...handlers}>
         <div className="overflow-hidden md:overflow-visible">
