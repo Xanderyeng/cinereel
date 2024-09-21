@@ -1,42 +1,17 @@
 import React from 'react'
+import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
-import Image from 'next/image'
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { Celebrity } from '@/_types/types'
+
 import { Button } from '../ui/button'
+import { Celebrity } from '@/_types/types'
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { dialogVariants, itemVariants } from '@/_utils/animatedModalVariants';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 
 interface AnimatedDialogProps {
   celebrities: Celebrity[]
   gtmEvent: (event: { event: string, value: string }) => void
-}
-
-const dialogVariants = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: { 
-    opacity: 1, 
-    scale: 1,
-    transition: { duration: 0.3, ease: "easeOut" }
-  },
-  exit: { 
-    opacity: 0, 
-    scale: 0.8, 
-    transition: { duration: 0.3, ease: "easeIn" }
-  }
-}
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.1,
-      duration: 0.5,
-      ease: "easeOut"
-    }
-  })
 }
 
 export default function AnimatedDialog({ celebrities, gtmEvent }: AnimatedDialogProps) {

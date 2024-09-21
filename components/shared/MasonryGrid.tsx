@@ -1,31 +1,18 @@
 'use client'
-import { motion } from 'framer-motion'
+import Link from 'next/link'
 import Image from 'next/image'
-import { Card, CardContent } from "@/components/ui/card"
+import { motion } from 'framer-motion'
 import { Movie, TVShow } from "@/_types/types"
+import { Card, CardContent } from "@/components/ui/card"
+import { cardVariants } from '@/_utils/masonryGridCardvariants'
 
 interface MasonryGridProps {
   items: (Movie | TVShow)[]
    type: 'movie' | 'tvshows'
 }
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.5, ease: "easeOut" }
-  },
-  exit: { 
-    opacity: 0, 
-    y: -30, 
-    transition: { duration: 0.3, ease: "easeIn" }
-  }
-}
-
 export default function MasonryGrid({ items, type }: MasonryGridProps) {
 
-  // console.log(items)
   return (
     <motion.div 
       className="grid grid-cols-1 gap-y-8 md:gap-y-6 sm:grid-cols-2 lg:grid-cols-4 gap-6"
@@ -36,6 +23,7 @@ export default function MasonryGrid({ items, type }: MasonryGridProps) {
     >
       {items.slice(0, 12).map((item, index) => (
         <motion.div key={item.id} variants={cardVariants}>
+          <Link href={`/${type === 'movie' ? 'movie' : 'tvshow'}/${item.id}`}>
           <Card key={item.id} className={`w-full ${index % 2 === 1 ? 'sm:translate-y-8' : ''} ${index % 4 === 1 ? 'sm:translate-y-8' : ''} hover:scale-105 transition-all duration-300 hover:cursor-pointer overflow-hidden`}>
             <CardContent className="p-0 ">
               <div className="relative aspect-[27/40] ">
@@ -55,6 +43,7 @@ export default function MasonryGrid({ items, type }: MasonryGridProps) {
               </div>
             </CardContent>
           </Card>
+          </Link>
         </motion.div>
       ))}
     </motion.div>

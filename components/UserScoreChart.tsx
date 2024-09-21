@@ -1,27 +1,15 @@
 "use client"
 
-import {
-  Label,
-  PolarGrid,
-  PolarRadiusAxis,
-  RadialBar,
-  RadialBarChart,
-} from "recharts"
+import { Label, PolarGrid, PolarRadiusAxis, RadialBar, RadialBarChart } from "recharts"
 
-import {
-  Card,
-  CardContent,
-} from "@/components/ui/card"
-import { ChartConfig, ChartContainer } from "@/components/ui/chart"
+import { ChartContainer } from "@/components/ui/chart"
+import { Card, CardContent } from "@/components/ui/card"
 
 export function UserScoreChart({ chartData, chartConfig }: { chartData: any, chartConfig: any }) {
   return (
     <Card className="flex flex-col border-none outline-none">
       <CardContent className="px-0 flex-1 pb-0">
-        <ChartContainer
-          config={chartConfig}
-          className="mx-0 aspect-square min-h-[100px]"
-        >
+        <ChartContainer config={chartConfig} className="mx-0 aspect-square min-h-[100px]" >
           <RadialBarChart
             data={chartData}
             startAngle={0}

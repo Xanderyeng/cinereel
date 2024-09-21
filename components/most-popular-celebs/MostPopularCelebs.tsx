@@ -1,15 +1,6 @@
-import React from "react";
-import CelebCard from "./CelebCard";
+
 import CelebCarousel from "./CelebCarousel";
-import { Celebrity, PopularCelebs } from "@/_types/types";
-import { PopularMovieStars } from "@/lib/popular_movie_stars";
-
-// function fetchCelebs(): PopularCelebs["results"] {
-//   // Slice the first 10 celebrities from the results array
-//   return PopularMovieStars.results.slice(0, 10);
-// }
-
-import { Movie } from "@/_types/types";
+import { PopularCelebs } from "@/_types/types";
 
 export async function fetchCelebs(): Promise<PopularCelebs["results"]> {
   const options = {

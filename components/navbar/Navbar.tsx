@@ -1,12 +1,20 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
+import Link from 'next/link'
+import { Button } from '../ui/button'
 import { motion } from 'framer-motion'
 import { ModeToggle } from './ThemeToggle'
-import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/movies', label: 'Movies' },
+  { href: '/tvshows', label: 'TV Shows' },
+]
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const pathname = usePathname()
 
   return (
     <motion.header
@@ -33,9 +41,24 @@ const Navbar = () => {
             </Link>
           </motion.span>
         </motion.span>
-        <div className='flex items-center space-x-4'>
+        <div className="hidden md:flex space-x-4">
+          {navItems.map((item) => (
+            <Button key={item.href} variant="ghost" asChild className="relative text-lg">
+              <Link href={item.href}>
+                {item.label}
+                {pathname === item.href && (
+                  <motion.div
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
+                    layoutId="underline"
+                    initial={false}
+                  />
+                )}
+              </Link>
+            </Button>
+          ))}
+        </div>
+        <div className='flex items-center pr-8 space-x-4'>
           <ModeToggle />
-          {/* <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} /> */}
         </div>
       </div>
     </motion.header>

@@ -10,7 +10,14 @@ const letterAnimation = {
 }
 
 export default function AnimatedHeroContent() {
-  const title = "Welcome to CineReel"
+  const scrollToTrending = () => {
+    const trendingSection = document.getElementById('trending-section')
+    if (trendingSection) {
+      trendingSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+  // HERO SECTION MESSAGE
+  const title = "Discover Your Next Favorite"
 
   return (
     <>
@@ -33,15 +40,18 @@ export default function AnimatedHeroContent() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: title.length * 0.05, duration: 0.5 }}
       >
-        Your personalized movie streaming experience
+        Explore the latest movies and TV shows
       </motion.p>
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: title.length * 0.06 + 0.5, duration: 0.5 }}
+        initial={{ scale: 1 }}
+        animate={{ scale: [1, 1.1, 1] }}
+        transition={{ repeat: Infinity, duration: 2 }}
       >
-        <Button className="mt-8" onClick={() => sendGTMEvent({ event: 'buttonClicked', value: 'See Trending Button' })}>
-          See Trending
+        <Button className=" dark:hover:bg-gray-950 dark:hover:text-white mt-8" onClick={() => (
+          sendGTMEvent({ event: 'buttonClicked', value: 'See Trending Button' }),
+          scrollToTrending()
+          )}>
+        See What&#39;s Trending
         </Button>
       </motion.div>
     </>

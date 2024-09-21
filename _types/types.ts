@@ -71,3 +71,17 @@ export interface PopularCelebs {
   total_pages: number;
   total_results: number;
 }
+
+export interface TrendingItem {
+  name: string
+  id: number
+  title: string
+  poster_path: string
+  vote_average: number
+  media_type: 'movie' | 'tvshow'
+}
+
+export interface TrendingSectionProps {
+  items: TrendingItem[]
+  title: string
+}
