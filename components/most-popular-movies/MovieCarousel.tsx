@@ -1,11 +1,12 @@
 'use client'
 
-import { useState, useEffect, Suspense } from 'react'
+import { useState, useEffect, Suspense, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronRight, ChevronLeft } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import MovieCard from './MovieCard'
 import { Movie } from '@/_types/types'
+import { useSwipeable } from 'react-swipeable'
 
 const cardVariants = {
   hidden: { opacity: 0, x: 50 },
@@ -32,13 +33,13 @@ const cardVariants = {
 export default function MovieCarousel({ movies }: { movies: Movie[] }) {
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 3) % movies.length)
-  }
+  }, [movies.length])
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex - 3 + movies.length) % movies.length)
-  }
+  }, [movies.length])
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -51,21 +52,28 @@ export default function MovieCarousel({ movies }: { movies: Movie[] }) {
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [])
+  }, [handleNext, handlePrev])
+
+  const handlers = useSwipeable({
+    onSwipedLeft: handleNext,
+    onSwipedRight: handlePrev,
+    trackMouse: true
+  })
 
   const visibleMovies = [
     movies[currentIndex],
     movies[(currentIndex + 1) % movies.length],
     movies[(currentIndex + 2) % movies.length],
+    // movies[(currentIndex + 3) % movies.length],
   ]
 
   return (
-    <div className="relative">
-      <div className="overflow-hidden">
+    <div className="relative" {...handlers}>
+      <div className="overflow-hidden md:overflow-visible">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            className="grid grid-rows-1 grid-cols-1 md:grid-cols-3 gap-6"
             style={{ display: 'grid' }}
           >
             {visibleMovies.map((movie, index) => (
@@ -76,9 +84,10 @@ export default function MovieCarousel({ movies }: { movies: Movie[] }) {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                style={{ width: '300px', height: '445px' }}
+                className="w-full h-full px-8 md:px-4"
+                // style={{ width: '300px', height: '440px' }}
               >
-                 <Suspense fallback={"loading..."}>
+                 <Suspense fallback={<div className="w-full h-[440px] bg-gray-200 animate-pulse rounded-lg"></div>}>
                   <MovieCard movie={movie} />
                 </Suspense>
               </motion.div>
@@ -87,14 +96,14 @@ export default function MovieCarousel({ movies }: { movies: Movie[] }) {
         </AnimatePresence>
       </div>
       <Button
-        className="absolute top-1/2 -left-16 transform -translate-y-1/2"
+        className="absolute top-1/2 -left-16 transform -translate-y-1/2 hidden lg:block"
         onClick={handlePrev}
         aria-label="Previous movies"
       >
         <ChevronLeft className="h-4 w-4" />
       </Button>
       <Button
-        className="absolute top-1/2 -right-16 transform -translate-y-1/2"
+        className="absolute top-1/2 -right-16 transform -translate-y-1/2 hidden lg:block"
         onClick={handleNext}
         aria-label="Next movies"
       >
