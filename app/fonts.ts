@@ -10,12 +10,6 @@ export const inter = Inter({
   fallback: ["system-ui", "Arial", "sans-serif"],
   variable: "--font-inter",
 });
-export const lato = Lato({
-  subsets: ["latin"],
-  weight: ["400"],
-  fallback: ["system-ui", "Arial", "sans-serif"],
-  variable: "--font-lato",
-});
 export const raleway = Raleway({
   subsets: ["latin"],
   fallback: ["Verdana", "Geneva", "sans-serif"],

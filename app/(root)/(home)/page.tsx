@@ -23,10 +23,12 @@ export default async function Home() {
 
   return (
     <main className="flex flex-col min-h-[90dvh] max-w-full mx-auto relative items-center justify-between p-0 overflow-hidden">
-      <Hero />
       <Suspense fallback={<Loading />}>
-        <MostPopularMovies />
-        <MostPopularCelebs />
+      <Hero />
+      <MostPopularMovies />
+      <MostPopularCelebs />
+      </Suspense>
+        <Suspense fallback={<Loading />}>
           <DynamicTrendingSection items={movies.map(movie => ({ ...movie, media_type: 'movie', name: movie.title }))} title="Trending Movies" />
           <DynamicTrendingSection items={tvShows.map(show => ({ ...show, media_type: 'tvshow', name: show.name }))} title="Trending TV Shows" />
           <DynamicMediaGrid 
