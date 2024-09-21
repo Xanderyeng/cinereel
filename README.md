@@ -2,11 +2,11 @@
 
 A modern, responsive web application for browsing movies and TV shows, built with Next.js 14, React, and Tailwind CSS.
 
-![Screenshot 1](screenshot1.png){: style="width: 100%"}
-
-![Screenshot 2](dark.png){: style="width: 50%"}
-
-![Screenshot 3](light.png){: style="width: 50%"}
+<div style="display: flex; justify-content: space-between;">
+  <img src="screenshot1.png" alt="Screenshot 1" width="100%" />
+  <img src="dark.png" alt="Screenshot 2" width="50%" />
+  <img src="dark.png" alt="Screenshot 2" width="50%" />
+</div>
 
 ## Features
 
