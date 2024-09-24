@@ -2,7 +2,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { GoogleTagManager } from '@next/third-parties/google'
 
-import { inter, lato, nunito, raleway } from "./fonts";
+import { inter, nunito, raleway } from "./fonts";
+import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/_components/theme-provider";
 
@@ -57,7 +58,7 @@ export default function RootLayout({
       <html lang="en" suppressHydrationWarning>
       <GoogleTagManager gtmId="GTM-TJCF55LG" />
         <body
-          className={`${inter.className} ${lato.className} ${nunito.className} ${raleway.className}`}
+          className={`${inter.className} ${nunito.className} ${raleway.className}`}
         >
           <ThemeProvider
             attribute="class"
@@ -69,6 +70,7 @@ export default function RootLayout({
             {children}
             <BottomNav />
             <Footer />
+            <Analytics/>
             <SpeedInsights />
           </ThemeProvider>
         </body>
