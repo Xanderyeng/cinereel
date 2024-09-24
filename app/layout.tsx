@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { GoogleTagManager } from '@next/third-parties/google'
 
 import { inter, nunito, raleway } from "./fonts";
+import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/_components/theme-provider";
 
@@ -69,6 +70,7 @@ export default function RootLayout({
             {children}
             <BottomNav />
             <Footer />
+            <Analytics/>
             <SpeedInsights />
           </ThemeProvider>
         </body>
