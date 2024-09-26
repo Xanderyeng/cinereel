@@ -51,9 +51,10 @@ export default function Footer() {
             © {currentYear} Cinereel. All rights reserved.
           </p>
           <Link
-            href="htpps://chepkiyeng.netlify.app"
+            href="https://chepkiyeng.netlify.app"
             target="_blank"
             rel="noopener noreferrer"
+            className="mb-4 md:mb-0"
           >
             <ByLine>Alexander Chepkiyeng</ByLine>
           </Link>

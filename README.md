@@ -20,20 +20,39 @@
 
 ## Features
 
-- Cross platform
-- Light/dark mode toggle
-- Browse popular movies and TV shows
-- Animated UI elements using Framer Motion
-- Google tag manager and analytics inclusion.
-- Responsive design with mobile-friendly navigation
-- View detailed information about movies and TV shows
-- Server-side rendering for improved performance and SEO
+- Cross-page state management
+- Smooth animations using Framer Motion
+- Responsive design for all device sizes
+- Accessibility features following WCAG guidelines
+- Blurred image loading for improved user experience
+- Dynamic page routing demonstrating advanced techniques
+- Detailed pages for movies, TV shows, people, and companies
+- Server-Side Rendering (SSR) for improved performance and SEO
+- Advanced search functionality for movies, TV shows, and people
+- Extended functionality with additional pages for a real-world feel
+- Performance optimizations including image optimization and lazy loading
+- Skeleton loading components for visual feedback during content loading
 
+## Technology Stack
 
-## Tech Stack
+- Next.js 14 (React)
+- TypeScript
+- Tailwind CSS
+- shadcn/ui components
+- Framer Motion for animations
+- TMDB API for movie and TV show data
+- Vercel for deployment
 
- Next JS 14, Typescript, TailwindCSS, Shadcn, Framer-motion, Anime JS
+## Project Structure
 
+The project follows a modular structure with separate directories for pages, components, and API integration:
+
+- `app/`: Contains the main application pages and layouts
+- `components/`: Reusable React components
+- `lib/`: API integration and utility functions
+- `styles/`: Global styles and Tailwind CSS configuration
+
+For a detailed file structure, please refer to the Technical Documentation at the root of the project.
 
 ## Installation
 
@@ -87,11 +106,17 @@ or
   npm run dev
 ```
 
-
 ## Launch browser
 Open [http://localhost:3000](http://localhost:3000) in your browser to see the app.
 ## Deployment
 This app can be easily deployed to Vercel or any other Next.js-compatible hosting platform.
+
+## Acknowledgments
+
+- Design inspired by Dreamshare Figma Design provided by WFD
+- Movie and TV show data provided by [The Movie Database (TMDB)](https://www.themoviedb.org/)
+- UI components from [shadcn/ui](https://ui.shadcn.com/)
+
 ## Contributing
 
 Contributions are welcome!

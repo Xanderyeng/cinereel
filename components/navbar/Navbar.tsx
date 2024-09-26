@@ -6,6 +6,7 @@ import { Button } from '../ui/button'
 import { motion } from 'framer-motion'
 import { ModeToggle } from './ThemeToggle'
 import { usePathname } from 'next/navigation'
+import SearchBar from '../SearchBar'
 
 const navItems = [
   { href: '/', label: 'Home' },
@@ -18,7 +19,7 @@ const Navbar = () => {
 
   return (
     <motion.header
-      className='fixed top-0 left-0 w-full px-8 pt-2 z-50 min-h-[10dvh] mx-auto'
+      className='fixed top-0 left-0 w-full px-8 pt-6 z-50 min-h-[10dvh] mx-auto '
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -43,7 +44,7 @@ const Navbar = () => {
         </motion.span>
         <div className="hidden md:flex space-x-4">
           {navItems.map((item) => (
-            <Button key={item.href} variant="ghost" asChild className="relative text-lg">
+            <Button key={item.href} variant="ghost" asChild className="relative text-lg font-bold">
               <Link href={item.href}>
                 {item.label}
                 {pathname === item.href && (
@@ -57,7 +58,10 @@ const Navbar = () => {
             </Button>
           ))}
         </div>
-        <div className='flex items-center pr-8 space-x-4'>
+        <div className="order-3 mt-4 w-full md:order-2 md:mt-0 md:w-auto">
+          <SearchBar />
+        </div>
+        <div className='flex items-center pr-8 space-x-4 '>
           <ModeToggle />
         </div>
       </div>

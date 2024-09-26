@@ -22,7 +22,7 @@ export default async function Home() {
   });
 
   return (
-    <main className="flex flex-col min-h-[90dvh] max-w-full mx-auto relative items-center justify-between p-0 overflow-hidden">
+    <main className="flex flex-col min-h-[90dvh] -mt-6 max-w-full mx-auto relative items-center justify-between p-0 overflow-hidden">
       <Suspense fallback={<Loading />}>
       <Hero />
       <MostPopularMovies />
