@@ -23,9 +23,11 @@ export default async function Home() {
 
   return (
     <main className="flex flex-col min-h-[90dvh] -mt-6 max-w-full mx-auto relative items-center justify-between p-0 overflow-hidden">
-      <Suspense fallback={<Loading />}>
       <Hero />
+      <Suspense fallback={<Loading />}>
       <MostPopularMovies />
+      </Suspense>
+      <Suspense fallback={<Loading />}>
       <MostPopularCelebs />
       </Suspense>
         <Suspense fallback={<Loading />}>

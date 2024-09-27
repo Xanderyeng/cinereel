@@ -3,10 +3,9 @@
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Card, CardTitle } from "@/components/ui/card"
+import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Movie } from '@/_types/types'
-import ImageLoading from "@/components/ImageLoading"
 
 export default function MovieCard({ movie }: { movie: Movie & { blurDataURL: string | null }}) {
   // const isTopThree = isPopular && index !== undefined && index < 3
