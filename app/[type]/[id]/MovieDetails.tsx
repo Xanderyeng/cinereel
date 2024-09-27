@@ -54,7 +54,7 @@ export default function MoviePage({ movie }: MovieDetailsProps){
             className="absolute inset-0"
           >
             <Image
-              src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+              src={movie.backdrop_path ? `https://image.tmdb.org/t/p/original/${movie.backdrop_path}` : '/image_reel_placeholder.webp'}
               alt={`${movie.original_title} backdrop`}
               layout="fill"
               objectFit="cover"
@@ -69,7 +69,8 @@ export default function MoviePage({ movie }: MovieDetailsProps){
         <div className="flex flex-col md:flex-row gap-8  outline outline-0 outline-green-500">
           <div className="flex flex-row flex-auto md:w-1/3 outline outline-0 outline-fuchsia-500">
             <Image
-              src={`https://image.tmdb.org/t/p/w780/${movie.poster_path}`}
+            // 
+              src={movie.poster_path ? `https://image.tmdb.org/t/p/w780/${movie.poster_path}` : '/image_reel_placeholder.webp'}
               alt={movie.title}
               style={{ objectFit: 'cover', objectPosition: 'center' }}
               width={800}

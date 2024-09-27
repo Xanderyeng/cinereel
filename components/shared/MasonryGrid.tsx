@@ -31,7 +31,6 @@ export default function MasonryGrid({ items, type }: MasonryGridProps) {
                   src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
                   alt={item.title || (item as TVShow).name}
                   fill
-                  aria-describedby={item.title || (item as TVShow).name}
                   loading="lazy"
                   style={{ objectFit: "cover" }}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
