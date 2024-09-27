@@ -14,6 +14,13 @@ const nextConfig = {
       }
     ],
   },
+  experimental: {
+    optimizeCss: true,
+    optimizePackageImports: ['framer-motion', '@radix-ui'],
+  },
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
 };
 
 export default withPlaiceholder(nextConfig);

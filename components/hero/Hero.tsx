@@ -5,7 +5,7 @@ import Loading from '@/app/[type]/[id]/loading'
 
 export default function Hero() {
   return (
-    <section className="relative h-[70dvh]  w-full bg-white dark:bg-gray-950">
+    <section className="relative h-[50vh] md:h-[70vh] w-full bg-white dark:bg-gray-950">
       <Image
         src="/hero-banner.webp"
         alt="Movie collage representing Cinereels's diverse content"
