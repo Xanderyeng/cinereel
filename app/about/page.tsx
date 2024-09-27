@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { TechStack } from "./techStack";
+import { notFound } from 'next/navigation'
 import { ReelMeteors } from "./ReelMeteors";
 import { Button } from "@/components/ui/button";
 import { ClassicRetroGrid } from "@/components/ClassicRetroGrid";
@@ -25,11 +26,18 @@ export default function AboutPage() {
               experience that brings the world of cinema and television to your
               fingertips.
             </p>
-            <p>
+            <p className="text-md">
               A simple platform to discover, explore, and keep track of your
               favorite content.
             </p>
             <p>Give it a star on GitHub and follow me for updates!</p>
+              <p className=" text-lg py-4">Check out the custom 404 Error page&nbsp;😉</p>
+            <span>
+              <Button variant="secondary" asChild>
+                <Link href='/_error'>404 Page
+                </Link>
+              </Button>
+            </span>
           </div>
           <Suspense fallback={<CardLoading />}>
             <div className="relative h-48">

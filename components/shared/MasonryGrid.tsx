@@ -33,7 +33,7 @@ export default function MasonryGrid({ items, type }: MasonryGridProps) {
                   fill
                   loading="lazy"
                   style={{ objectFit: "cover" }}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(min-width: 1280px) 334px, (min-width: 1080px) 291px, (min-width: 780px) calc(28.93vw - 16px), calc(100vw - 66px)"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
                 <h3 className="absolute bottom-4 left-4 right-4 text-white text-lg font-semibold truncate">

@@ -12,6 +12,7 @@ const navItems = [
   { href: '/', label: 'Home' },
   { href: '/movies', label: 'Movies' },
   { href: '/tvshows', label: 'TV Shows' },
+  { href: '/about', label: 'About' },
 ]
 
 const Navbar = () => {
