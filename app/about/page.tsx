@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { TechStack } from "./techStack";
-import { notFound } from 'next/navigation'
 import { ReelMeteors } from "./ReelMeteors";
 import { Button } from "@/components/ui/button";
 import { ClassicRetroGrid } from "@/components/ClassicRetroGrid";
