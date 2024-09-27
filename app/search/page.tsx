@@ -17,7 +17,7 @@ export default async function SearchPage({
   return (
     <section className="container mx-auto px-4 py-8">
       <div className="flex flex-row items-center justify-between py-6 ">
-      <h1 className="text-2xl font-bold pt-6 md:pt-12 mb-4">Search Results for "{query}"</h1>
+      <h1 className="text-2xl font-bold pt-6 md:pt-12 mb-4">Search Results for &quot;{query}&quot;</h1>
       <BackToHomeButton />
       </div>
       <Suspense fallback={<SearchResultsSkeleton />}>
