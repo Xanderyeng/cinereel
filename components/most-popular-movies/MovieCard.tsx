@@ -24,10 +24,10 @@ export default function MovieCard({ movie }: { movie: Movie & { blurDataURL: str
               alt={movie.title}
               fill
               loading="lazy"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              sizes="(min-width: 1280px) 334px, (min-width: 1080px) 291px, (min-width: 780px) calc(28.93vw - 16px), calc(100vw - 66px)"
               style={{ objectFit: "cover" }}
               placeholder={movie.blurDataURL ? "blur" : "empty"}
-              blurDataURL={movie.blurDataURL || 'https://image.tmdb.org/t/p/w200/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg'}
+              blurDataURL={movie.blurDataURL || '/image_reel_placeholder.webp'}
             />
           </div>
           <Badge className="absolute top-2 right-2 bg-primary text-primary-foreground">
