@@ -18,7 +18,7 @@ export default function ByLine({ children }: BylineProps) {
     <motion.span 
     whileHover={{ scale: 1.2 }}
     whileTap={{ scale: 0.9 }}
-    className=' text-[0.75rem] cursor-pointer '>
+    className=' text-[0.75rem] cursor-pointer pl-2'>
     {children}
     </motion.span>
   </motion.div>

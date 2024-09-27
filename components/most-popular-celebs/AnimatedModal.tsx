@@ -21,7 +21,7 @@ export default function AnimatedDialog({ celebrities, gtmEvent }: AnimatedDialog
         <DialogTrigger asChild>
           <Button variant="outline" onClick={() => gtmEvent({ event: 'buttonClicked', value: 'See Other Partners' })}>See Other Partners</Button>
         </DialogTrigger>
-        <DialogContent className=" max-w-[90vw] rounded-lg md:rounded-md sm:max-w-[425px]" aria-description='Other Partners' aria-label="Other Partners" aria-describedby="other-partners">
+        <DialogContent className=" max-w-[90vw] rounded-lg md:rounded-md sm:max-w-[425px]"aria-label="Other Partners" aria-describedby="other-partners">
             <motion.div
               variants={dialogVariants}
               initial="hidden"
