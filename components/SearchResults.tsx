@@ -38,7 +38,7 @@ export default function SearchResults({ initialResults }: SearchResultsProps) {
                   <Skeleton className="w-full h-full absolute" />
                 )}
                 <Image
-                  src={`https://image.tmdb.org/t/p/${result.poster_path && 'w500' || 'w185' || 'h632' || 'original'}/${result.poster_path}`}
+                  src={result.poster_path ? `https://image.tmdb.org/t/p/${result.poster_path && 'w500' || 'w185' || 'h632' || 'original'}/${result.poster_path}` : '/image_reel_placeholder.webp'}
                   alt={result.title || result.name || 'Poster'}
                   fill
                   style={{ objectFit: 'cover' }}

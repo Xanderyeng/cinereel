@@ -3,6 +3,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import ByLine from "./ByLine";
+import { Button } from "../ui/button";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -12,38 +13,46 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            <Link href="/" className="text-2xl font-bold">
-              Cinereel
-            </Link>
+          
+              <Link href="/" className="text-2xl font-bold">
+                Cinereel
+              </Link>
+            
             <p className="text-sm mt-2">
               Your ultimate movie and TV show companion
             </p>
           </div>
           <nav className="flex flex-wrap justify-center md:justify-end gap-4">
+          <Button variant="ghost" asChild className="px-1">
             <Link
               href="/movies"
               className="hover:text-primary transition-colors"
             >
               Movies
             </Link>
+          </Button>
+            <Button variant="ghost" asChild className="px-1">
             <Link
               href="/tvshows"
               className="hover:text-primary transition-colors"
             >
               TV Shows
             </Link>
+            </Button>
+            <Button variant="ghost" asChild className="px-1">
             <Link
               href="/about"
               className="hover:text-primary transition-colors"
             >
               About
-            </Link>
+            </Link></Button>
+            <Button variant="ghost" asChild className="px-1">
             <Link
               href="/contact"
               className="hover:text-primary transition-colors"
             >
               Contact
-            </Link>
+            </Link></Button>
           </nav>
         </div>
         <div className="mt-8 flex flex-col md:flex-row justify-between items-center">
@@ -54,7 +63,7 @@ export default function Footer() {
             href="https://chepkiyeng.netlify.app"
             target="_blank"
             rel="noopener noreferrer"
-            className="mb-4 md:mb-0"
+            className="mb-4 md:mb-0 "
           >
             <ByLine>Alexander Chepkiyeng</ByLine>
           </Link>
