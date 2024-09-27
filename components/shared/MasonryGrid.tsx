@@ -29,7 +29,7 @@ export default function MasonryGrid({ items, type }: MasonryGridProps) {
               <div className="relative aspect-[27/40] ">
                 <Image
                   src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-                  alt={item.title || (item as TVShow).name}
+                  alt={`${item.title} movie` || `${(item as TVShow).name}} tvshow`}
                   fill
                   loading="lazy"
                   style={{ objectFit: "cover" }}
