@@ -12,6 +12,7 @@ interface SearchResult {
   title?: string
   name?: string
   poster_path: string
+  profile_path: string
 }
 
 interface SearchResultsProps {
@@ -25,12 +26,32 @@ export default function SearchResults({ initialResults }: SearchResultsProps) {
     setImagesLoaded(prev => ({ ...prev, [id]: true }))
   }
 
+  const getMediaTypeUrl = (mediaType: string) => {
+    switch (mediaType) {
+      case 'tv':
+        return 'tvshow'
+      case 'person':
+        return 'person'
+      case 'movie':
+        return 'movie'
+      default:
+        return mediaType
+    }
+  }
+
+  const getImagePath = (result: SearchResult) => {
+    if (result.media_type === 'person') {
+      return result.profile_path
+    }
+    return result.poster_path
+  }
+
   if (initialResults.length === 0) return <div>No results found</div>
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
       {initialResults.map((result) => (
-        <Link key={result.id} href={`/${result.media_type}/${result.id}`}>
+        <Link key={result.id} href={`/${getMediaTypeUrl(result.media_type)}/${result.id}`}>
           <Card className="hover:scale-105 transition-transform duration-200">
             <CardContent className="p-2">
               <div className="aspect-[2/3] relative mb-2">
