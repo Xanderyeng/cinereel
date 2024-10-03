@@ -8,7 +8,7 @@ export async function getPersonDetails(id: string) {
       };
     
       try {
-        const res = await fetch(`https://api.themoviedb.org/3/search/person/${id}?language=en-US&page=1`, { next: { revalidate: 3600 },
+        const res = await fetch(`https://api.themoviedb.org/3/person/${id}?&append_to_response=movie_credits`, { next: { revalidate: 3600 },
             ...options 
         })
       if (!res.ok) throw new Error('Failed to fetch Actor/actress details')

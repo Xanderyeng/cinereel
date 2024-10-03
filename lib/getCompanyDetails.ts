@@ -8,7 +8,7 @@ export async function getCompanyDetails(id: string) {
       };
     
       try {
-        const res = await fetch(`https://api.themoviedb.org/3/search/company/${id}?language=en-US&page=1`, { next: { revalidate: 3600 },
+        const res = await fetch(`https://api.themoviedb.org/3/company/${id}?language=en-US&page=1`, { next: { revalidate: 3600 },
             ...options 
         })
       if (!res.ok) throw new Error('Failed to fetch movie company details')
